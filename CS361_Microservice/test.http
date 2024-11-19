@@ -1,0 +1,47 @@
+
+### Test 1: Send valid songs to an email
+POST http://localhost:3008/api/send-song
+Content-Type: application/json
+
+{
+    "songIds": ["673a49127f852549f40ee0ed", "673be0b224f12dab0b16752b"],
+    "email": "levi.wuckert@ethereal.email"
+}
+
+### Test 2: Invalid song IDs
+POST http://localhost:3008/api/send-song
+Content-Type: application/json
+
+{
+    "songIds": ["invalid-id"],
+    "email": "test@example.com"
+}
+
+### Test 3: Missing email
+POST http://localhost:3008/api/send-song
+Content-Type: application/json
+
+{
+    "songIds": ["64a9d6fa43bc45a1a4a6c9f8"]
+}
+
+### Test 4: Song not found
+POST http://localhost:3008/api/send-song
+Content-Type: application/json
+
+{
+    "songIds": ["64a9d6fa43bca4a6c9fa"], 
+    "email": "test@example.com"
+}
+### Test
+GET  http://localhost:3008/songs HTTP/1.1
+
+
+Content-Type: application/json
+
+{
+    "title": "lovely",
+    "artist": "khalid",
+    "album": "LALALA",
+    "mood": "Happy"
+}
